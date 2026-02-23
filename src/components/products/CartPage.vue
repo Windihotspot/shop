@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import UserHeader from '@/layouts/UserHeader.vue'
+import AppFooter from '@/layouts/AppFooter.vue'
 import { ref, computed } from 'vue'
 
 const quantity = ref(1)
@@ -36,7 +37,7 @@ const decrease = () => quantity.value > 1 && quantity.value--
           <div class="flex-1">
             <div class="flex justify-between items-start">
               <h2 class="font-medium text-gray-900">Short Straight Blazer</h2>
-              <p class="text-xl font-semibold">${{ price.toFixed(2) }}</p>
+              <p class="text-xl font-semibold">£{{ price.toFixed(2) }}</p>
             </div>
 
             <!-- Options -->
@@ -97,19 +98,19 @@ const decrease = () => quantity.value > 1 && quantity.value--
         <div class="space-y-2 text-sm text-gray-600">
           <div class="flex justify-between">
             <span>Item(s) total</span>
-            <span>${{ price.toFixed(2) }}</span>
+            <span>£{{ price.toFixed(2) }}</span>
           </div>
           <div class="flex justify-between">
             <span>Shop discount</span>
-            <span>- ${{ discount.toFixed(2) }}</span>
+            <span>- £{{ discount.toFixed(2) }}</span>
           </div>
           <div class="flex justify-between font-medium text-gray-900">
             <span>Subtotal</span>
-            <span>${{ subtotal.toFixed(2) }}</span>
+            <span>£{{ subtotal.toFixed(2) }}</span>
           </div>
           <div class="flex justify-between">
             <span>Shipping</span>
-            <span>${{ shipping.toFixed(2) }}</span>
+            <span>£{{ shipping.toFixed(2) }}</span>
           </div>
         </div>
 
@@ -117,7 +118,7 @@ const decrease = () => quantity.value > 1 && quantity.value--
 
         <div class="flex justify-between font-semibold text-gray-900 mb-4">
           <span>Total (1 item)</span>
-          <span>${{ total.toFixed(2) }}</span>
+          <span>£{{ total.toFixed(2) }}</span>
         </div>
 
         <!-- CTA -->
@@ -130,4 +131,6 @@ const decrease = () => quantity.value > 1 && quantity.value--
       </div>
     </div>
   </section>
+
+  <AppFooter/>
 </template>

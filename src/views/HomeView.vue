@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import PopularProducts from '@/components/products/PopularProducts.vue'
+import AppFooter from '@/layouts/AppFooter.vue';
 import UserHeader from '@/layouts/UserHeader.vue'
+
 </script>
 
 <template>
@@ -20,4 +22,7 @@ import UserHeader from '@/layouts/UserHeader.vue'
     </v-text-field>
   </div> -->
   <PopularProducts />
+
+  <!-- Footer -->
+   <AppFooter/>
 </template>

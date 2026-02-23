@@ -1,5 +1,5 @@
 {
-  "name": "paratus",
+  "name": "shop",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,8 +11,8 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "predeploy": "vite build",
-    "deploy": "vite build && echo www.pof.paratusbanca.com > dist/CNAME && gh-pages -d dist -b gh-pages --no-history"
+    "predeploy": "vite build"
+    
 
 
   },
