@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, onMounted } from 'vue'
+import { useCartStore } from '@/stores/cart'
 
-const search = ref('')
-const cartCount = ref(16)
+const cart = useCartStore()
 
+// make sure cart loads on refresh
+onMounted(() => {
+  cart.load()
+})
 
+// reactive cart count
+const cartCount = computed(() => cart.totalItems)
 </script>
 
 <template>
