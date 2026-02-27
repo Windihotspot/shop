@@ -31,9 +31,8 @@ const year = new Date().getFullYear()
         <!-- Logo -->
         <div class="flex items-center gap-2 mb-4">
           <!-- <v-icon icon="mdi-leaf" size="26" class="text-teal-700" /> -->
-          <span class="text-xl font-semibold text-gray-900">
-            Shop
-          </span>
+           <!-- Logo -->
+        <img src="../assets/annie.png" class="w-40 h-40" alt="">
         </div>
 
         <!-- Socials -->
