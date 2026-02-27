@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { supabase } from '@/services/supabase' // adjust path if needed
+import { useCartStore } from '@/stores/cart'
+import { useRouter } from 'vue-router'
+
+const cart = useCartStore()
+const router = useRouter()
 
 type Product = {
   id: string
@@ -58,6 +63,16 @@ const fetchProducts = async () => {
   loading.value = false
 }
 
+const addToCart = (product: Product) => {
+  cart.addToCart({
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    image: product.image
+  })
+
+  router.push('/cart')
+}
 onMounted(fetchProducts)
 </script>
 
@@ -119,7 +134,7 @@ onMounted(fetchProducts)
           </div>
 
           <v-btn
-            to="cart"
+              @click="addToCart(product)"
             size="small"
             color="red"
             class="text-white normal-case custom-btn"
