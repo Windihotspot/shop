@@ -1,5 +1,6 @@
 import CartPage from '@/components/products/CartPage.vue'
 import HomeView from '@/views/HomeView.vue'
+import Upload from '@/views/Upload.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/cart',
       name: 'cart',
       component: CartPage
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: Upload
     },
   
   ]

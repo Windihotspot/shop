@@ -1,38 +1,64 @@
 <script setup lang="ts">
-const products = [
-  {
-    id: 1,
-    name: 'Urban Classic Hoodie',
-    price: 45.0,
-    image: 'https://images.unsplash.com/photo-1520975916090-3105956dac38',
-    rating: 5,
-    isNew: true
-  },
-  {
-    id: 2,
-    name: 'Premium Denim Jacket',
-    price: 82.0,
-    image: 'https://images.unsplash.com/photo-1542060748-10c28b62716f',
-    rating: 5,
-    isNew: true
-  },
-  {
-    id: 3,
-    name: 'Essential Cotton T-Shirt',
-    price: 25.0,
-    image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820',
-    rating: 4,
-    isNew: true
-  },
-  {
-    id: 4,
-    name: 'Slim Fit Cargo Pants',
-    price: 55.0,
-    image: 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0',
-    rating: 5,
-    isNew: true
+import { ref, onMounted } from 'vue'
+import { supabase } from '@/services/supabase' // adjust path if needed
+
+type Product = {
+  id: string
+  name: string
+  price: number
+  image: string
+  rating: number
+  isNew: boolean
+}
+
+const products = ref<Product[]>([])
+const loading = ref(false)
+
+const fetchProducts = async () => {
+  loading.value = true
+
+  const { data, error } = await supabase
+    .from('products')
+    .select(
+      `
+      id,
+      name,
+      price,
+      created_at,
+      product_images (
+        image_url,
+        is_primary
+      )
+    `
+    )
+    .eq('status', 'active')
+    .order('created_at', { ascending: false })
+
+  if (error) {
+    console.error('Failed to fetch products:', error)
+    loading.value = false
+    return
   }
-]
+
+  products.value = data.map((product) => {
+    const primaryImage =
+      product.product_images?.find((img: any) => img.is_primary)?.image_url ||
+      'https://via.placeholder.com/300x300?text=No+Image'
+
+    return {
+      id: product.id,
+      name: product.name,
+      price: Number(product.price),
+      image: primaryImage,
+      rating: 5, // static for now (can come from reviews later)
+      isNew: true // or based on created_at
+    }
+  })
+
+  loading.value = false
+}
+
+onMounted(fetchProducts)
 </script>
 
 <template>
@@ -40,8 +66,13 @@ const products = [
     <!-- Section title -->
     <h2 class="text-lg font-semibold mt-4 mb-6">Available Products</h2>
 
+    <div v-if="loading" class="flex flex-col items-center justify-center py-10 space-y-3">
+          <v-progress-circular indeterminate color="red" size="12" width="2" />
+          <span class="text-sm text-gray-500">Loading products</span>
+        </div>
+
     <!-- Product grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div
         v-for="product in products"
         :key="product.id"
@@ -77,18 +108,23 @@ const products = [
 
         <!-- Rating -->
         <div class="flex items-center justify-between">
-            <div>
-                   <v-icon
-            v-for="i in 5"
-            :key="i"
-            icon="mdi-star"
-            size="24"
-            :class="i <= product.rating ? 'text-yellow-400' : 'text-gray-600'"
-          />
-            </div>
-       
+          <div>
+            <v-icon
+              v-for="i in 5"
+              :key="i"
+              icon="mdi-star"
+              size="24"
+              :class="i <= product.rating ? 'text-yellow-400' : 'text-gray-600'"
+            />
+          </div>
 
-          <v-btn to="cart" size="small" color="red" class="text-white normal-case custom-btn" elevation="0">
+          <v-btn
+            to="cart"
+            size="small"
+            color="red"
+            class="text-white normal-case custom-btn"
+            elevation="0"
+          >
             Add to cart
           </v-btn>
         </div>
@@ -98,7 +134,7 @@ const products = [
 </template>
 
 <style scoped>
-.v-btn{
-    text-transform: none;
+.v-btn {
+  text-transform: none;
 }
 </style>
