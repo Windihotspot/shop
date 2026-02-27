@@ -6,7 +6,8 @@ import UserHeader from '@/layouts/UserHeader.vue'
 </script>
 
 <template>
-  <UserHeader />
+  <div class="bg-gradient-to-r from-red-100 via-red-200 to-red-100 ">
+     <UserHeader />
 
   <!-- Search -->
   <!-- <div class="m-4 relative w-full max-w-md">
@@ -25,4 +26,6 @@ import UserHeader from '@/layouts/UserHeader.vue'
 
   <!-- Footer -->
    <AppFooter/>
+  </div>
+ 
 </template>

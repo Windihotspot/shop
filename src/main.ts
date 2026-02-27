@@ -6,7 +6,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import 'aos/dist/aos.css'
-import AOS from 'aos'
+
 import './assets/fonts.css'
 // Import Element Plus and its styles
 import ElementPlus from 'element-plus';
@@ -36,7 +36,8 @@ const app = createApp(App)
 
 
 
-app.use(createPinia())
+const pinia = createPinia()
+app.use(pinia)
 app.use(router)
 app.use(vuetify)
 app.use(VueApexCharts)
@@ -51,7 +52,6 @@ if (redirectPath) {
 
 app.mount('#app')
 
-AOS.init()
 
 
 

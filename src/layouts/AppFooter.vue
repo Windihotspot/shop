@@ -3,7 +3,7 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="bg-[#eef3f3] rounded-t-2xl mt-20">
+  <footer class="bg-gradient-to-r from-red-100 via-red-200 to-red-100 rounded-t-2xl mt-20">
     <div
       class="max-w-7xl mx-auto px-6 py-10
              grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
@@ -38,16 +38,16 @@ const year = new Date().getFullYear()
 
         <!-- Socials -->
         <div class="flex gap-4">
-          <button class="text-teal-700 hover:text-teal-900">
+          <button class="hover:text-teal-900">
             <v-icon icon="mdi-facebook" size="22" />
           </button>
-          <button class="text-teal-700 hover:text-teal-900">
+          <button class=" hover:text-teal-900">
             <v-icon icon="mdi-youtube" size="22" />
           </button>
-          <button class="text-teal-700 hover:text-teal-900">
+          <button class=" hover:text-teal-900">
             <v-icon icon="mdi-instagram" size="22" />
           </button>
-          <button class="text-teal-700 hover:text-teal-900">
+          <button class=" hover:text-teal-900">
             <v-icon icon="mdi-linkedin" size="22" />
           </button>
         </div>

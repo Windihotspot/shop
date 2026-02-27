@@ -57,7 +57,7 @@ const products = [
 
         <!-- Wishlist -->
         <button
-          class="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#1f1f1f] flex items-center justify-center text-gray-300 hover:text-red-500"
+          class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center hover:text-red-500"
         >
           <v-icon icon="mdi-heart-outline" size="18" />
         </button>

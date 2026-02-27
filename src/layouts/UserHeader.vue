@@ -8,12 +8,12 @@ const cartCount = ref(16)
 </script>
 
 <template>
-  <header class="w-full bg-white border-b">
+  <header class="w-full bg-gradient-to-r from-red-100 via-red-200 to-red-100  border-b">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
       <!-- LEFT: Logo + Search -->
       <div class="flex items-center gap-6 flex-1">
         <!-- Logo -->
-        <h1 class="text-2xl font-extrabold tracking-tight">L<span class="font-black">O</span>GO</h1>
+        <img src="../assets/annie.png" class="w-40 h-40" alt="">
 
         
       </div>

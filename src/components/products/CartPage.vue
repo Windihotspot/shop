@@ -16,14 +16,15 @@ const decrease = () => quantity.value > 1 && quantity.value--
 </script>
 
 <template>
-  <user-header />
+  <div class="bg-gradient-to-r from-red-100 via-red-200 to-red-100">
+    <user-header />
   <section class="max-w-7xl mx-auto px-4 py-8">
     <!-- Title -->
     <h1 class="text-2xl font-semibold mb-6">Your cart</h1>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <!-- LEFT: Cart Item -->
-      <div class="lg:col-span-2 bg-white rounded-xl p-5 shadow-sm">
+      <div class="lg:col-span-2 rounded-xl p-5 shadow-sm">
         <div class="flex flex-col sm:flex-row gap-4">
           <!-- Image -->
           <div class="w-full sm:w-32 h-40 bg-gray-100 rounded-lg overflow-hidden">
@@ -78,7 +79,7 @@ const decrease = () => quantity.value > 1 && quantity.value--
       </div>
 
       <!-- RIGHT: Summary -->
-      <div class="bg-white rounded-xl p-5 shadow-sm h-fit">
+      <div class=" rounded-xl p-5 shadow-sm h-fit">
         <h3 class="font-medium mb-4">How you'll pay</h3>
 
         <!-- Payment methods -->
@@ -133,4 +134,6 @@ const decrease = () => quantity.value > 1 && quantity.value--
   </section>
 
   <AppFooter/>
+  </div>
+  
 </template>
