@@ -19,7 +19,7 @@ const cartCount = computed(() => cart.totalItems)
       <!-- LEFT: Logo + Search -->
       <div class="flex items-center gap-6 flex-1">
         <!-- Logo -->
-        <img src="../assets/annie.png" class="w-40 h-40" alt="">
+        <img src="../assets/annie.png" class="w-20 h-20" alt="">
 
         
       </div>
