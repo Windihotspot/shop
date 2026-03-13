@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import PopularProducts from '@/components/products/PopularProducts.vue'
-import AppFooter from '@/layouts/AppFooter.vue';
+import AppFooter from '@/layouts/AppFooter.vue'
 import UserHeader from '@/layouts/UserHeader.vue'
-
 </script>
 
 <template>
-  <div class="bg-gradient-to-r from-red-100 via-red-200 to-red-100 ">
-     <UserHeader />
+  <div class="bg-gradient-to-r from-red-100 via-red-200 to-red-100">
+    <UserHeader />
 
-  <!-- Search -->
-  <!-- <div class="m-4 relative w-full max-w-md">
+    <!-- Search -->
+    <!-- <div class="m-4 relative w-full max-w-md">
     <v-text-field
       placeholder="Search for anything"
       density="compact"
@@ -22,10 +21,9 @@ import UserHeader from '@/layouts/UserHeader.vue'
     >
     </v-text-field>
   </div> -->
-  <PopularProducts />
+    <PopularProducts />
 
-  <!-- Footer -->
-   <AppFooter/>
+    <!-- Footer -->
+    <AppFooter />
   </div>
- 
 </template>

@@ -111,7 +111,7 @@ onMounted(fetchProducts)
 
         <!-- Image -->
         <div class="flex justify-center mt-6 mb-4">
-          <img src="" alt="product.name" class="h-36 object-contain" />
+          <img src="https://images.pexels.com/photos/17747712/pexels-photo-17747712.jpeg" alt="" class="h-36 object-contain" />
         </div>
 
         <!-- Product name -->

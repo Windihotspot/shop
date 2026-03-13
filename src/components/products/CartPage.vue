@@ -32,23 +32,24 @@ const decrease = () => quantity.value > 1 && quantity.value--
         <!-- LEFT: Cart Item -->
         <div class="lg:col-span-2 rounded-xl p-5 shadow-sm">
           <div v-for="item in cart.items" :key="item.id" class="flex gap-4 py-4">
-  <img :src="item.image" class="w-32 h-40 object-cover rounded" />
+            <img
+              src="https://images.pexels.com/photos/17747712/pexels-photo-17747712.jpeg"
+              class="w-32 h-40 object-cover rounded"
+            />
 
-  <div class="flex-1">
-    <h2 class="font-medium">{{ item.name }}</h2>
-    <p class="font-semibold">£{{ (item.price * item.quantity).toFixed(2) }}</p>
+            <div class="flex-1">
+              <h2 class="font-medium">{{ item.name }}</h2>
+              <p class="font-semibold">£{{ (item.price * item.quantity).toFixed(2) }}</p>
 
-    <div class="flex items-center gap-3 mt-3">
-      <button @click="cart.updateQuantity(item.id, item.quantity - 1)">−</button>
-      <span>{{ item.quantity }}</span>
-      <button @click="cart.updateQuantity(item.id, item.quantity + 1)">+</button>
+              <div class="flex items-center gap-3 mt-3">
+                <button @click="cart.updateQuantity(item.id, item.quantity - 1)">−</button>
+                <span>{{ item.quantity }}</span>
+                <button @click="cart.updateQuantity(item.id, item.quantity + 1)">+</button>
 
-      <button class="text-red-500" @click="cart.remove(item.id)">
-        Remove
-      </button>
-    </div>
-  </div>
-</div>
+                <button class="text-red-500" @click="cart.remove(item.id)">Remove</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- RIGHT: Summary -->
